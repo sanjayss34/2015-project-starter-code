@@ -25,14 +25,14 @@ class treasurepoint(db.Model):
         #return (self.username == 'aharelick')
 
 
-class Post(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	title = db.Column(db.String(80))
-	body = db.Column(db.Text)
-	pub_date = db.Column(db.DateTime, default=datetime.utcnow())
-	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-	def __repr__(self):
-		return '<Post %r>' % self.title
+#class Post(db.Model):
+#	id = db.Column(db.Integer, primary_key=True)
+#	title = db.Column(db.String(80))
+#	body = db.Column(db.Text)
+#	pub_date = db.Column(db.DateTime, default=datetime.utcnow())
+#	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#
+#	def __repr__(self):
+#		return '<Post %r>' % self.title
 
 
