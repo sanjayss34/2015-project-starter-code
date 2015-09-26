@@ -2,6 +2,7 @@ from app import app
 from jinja2 import Template
 from flask import render_template
 import models
+from app import db
 treasures = []
 
 
@@ -20,4 +21,6 @@ def add_treasure():
     longitude = request.args.get('longitude', 75.19, type=float)
     notes = request.args.get('notes', '', type=str)
     treasures.append(treasurepoint(latitude=latitude, longitude=longitude, notes=notes))
+    db.session.add(models.treasurepoint(latitude, longitude, notes))
+    db.session.commit()
     return redirect(url_for('app.index'))
