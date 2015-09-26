@@ -17,7 +17,7 @@ def index():
 
 @app.route('/health', methods=['GET'])
 def health():
-    return 200
+    return 'Everything is fine', 200
 
 @app.route('/coordinates', methods=['POST'])
 def add_treasure():
