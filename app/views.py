@@ -15,6 +15,10 @@ def index():
 		current_treasures.append(t.notes)
 	return render_template('template.html', treasures=current_treasures)
 
+@app.route('/health', methods=['GET'])
+def health():
+    return 200
+
 @app.route('/coordinates', methods=['POST'])
 def add_treasure():
     latitude = request.args.get('latitude', 39.95, type=float)
