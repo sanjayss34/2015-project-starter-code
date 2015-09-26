@@ -1,6 +1,6 @@
 from app import app
 from jinja2 import Template
-from flask import render_template
+from flask import render_template, request
 import models
 from app import db
 treasures = []
