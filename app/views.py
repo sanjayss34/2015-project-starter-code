@@ -8,7 +8,7 @@ treasures = []
 @app.route('/', methods=['GET'])
 def index():
 	current_treasures = [39.952, -75.195, "Center"]
-	for t in models.TreasurePoint.query.all():
+	for t in models.treasurepoint.query.all():
 		current_treasures.append(t.latitude)
 		current_treasures.append(t.longitude)
 		current_treasures.append(t.notes)
@@ -19,5 +19,5 @@ def add_treasure():
     latitude = request.args.get('latitude', 39.95, type=float)
     longitude = request.args.get('longitude', 75.19, type=float)
     notes = request.args.get('notes', '', type=str)
-    treasures.append(TreasurePoint(latitude=latitude, longitude=longitude, notes=notes))
+    treasures.append(treasurepoint(latitude=latitude, longitude=longitude, notes=notes))
     return redirect(url_for('app.index'))
