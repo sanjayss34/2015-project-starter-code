@@ -7,7 +7,7 @@ treasures = []
 
 @app.route('/', methods=['GET'])
 def index():
-	current_treasures = [39.95, 75.19, "Center"]
+	current_treasures = [39.952, -75.195, "Center"]
 	for t in models.TreasurePoint.query.all():
 		current_treasures.append(t.latitude)
 		current_treasures.append(t.longitude)
