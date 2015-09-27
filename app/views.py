@@ -21,10 +21,12 @@ def health():
 
 @app.route('/coordinates', methods=['POST'])
 def add_treasure():
-    latitude = request.args.get('latitude', 39.952, type=float)
-    longitude = request.args.get('longitude', -75.195, type=float)
-    notes = request.args.get('notes', "nothing", type=str)
-    treasures.append(models.treasurepoint(latitude=latitude, longitude=longitude, notes=notes))
-    db.session.add(models.treasurepoint(latitude, longitude, notes))
-    db.session.commit()
+    coordinate_objs = request.args.get('coordinates', [], type=list)
+    for c in coordinate_objs:
+        #latitude = request.args.get('latitude', 39.952, type=float)
+        #longitude = request.args.get('longitude', -75.195, type=float)
+        #notes = request.args.get('notes', "nothing", type=str)
+        treasures.append(models.treasurepoint(latitude=c.latitude, longitude=c.longitude, notes=c.notes))
+        db.session.add(models.treasurepoint(c.latitude, c.longitude, c.notes))
+        db.session.commit()
     return redirect(url_for('index'))
