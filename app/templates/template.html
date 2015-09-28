@@ -17,7 +17,7 @@
     };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         var treasures = {{ treasures|safe }}
-        for (i = 0; i < treasures.length; i = i + 3)
+        for (i = 0; i < treasures.length; i = i + 1)
         {
             var marker = new google.maps.Marker({
             position:{lat: treasures[3*i], lng: treasures[3*i+1]}, title: treasures[3*i+2]
