@@ -12,7 +12,7 @@ def index():
 	for t in models.treasurepoint.query.all():
 		current_treasures.append(t.latitude)
 		current_treasures.append(t.longitude)
-		current_treasures.append(t.notes)
+		current_treasures.append(str(t.notes))
 	return render_template('template.html', treasures=current_treasures)
 
 @app.route('/health', methods=['GET'])
